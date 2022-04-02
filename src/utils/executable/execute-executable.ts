@@ -1,5 +1,5 @@
 import { Options, Result } from '../../types';
-import { execute } from '../execute-command';
+import { execute } from '../../execute-command';
 
 /**
  * 

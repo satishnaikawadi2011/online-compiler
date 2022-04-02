@@ -1,4 +1,4 @@
-import { Options, Result } from '../types';
+import { Options, Result } from './types';
 import { ChildProcess, spawn } from 'child_process';
 import * as path from 'path';
 
@@ -56,7 +56,7 @@ export function execute(cmd: string, ...args: any[]): Promise<Result> {
 		p = spawn(
 			'node',
 			[
-				path.join(__dirname, 'container', 'index')
+				path.join(__dirname, 'box', 'index')
 			],
 			{
 				stdio:
