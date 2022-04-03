@@ -7,5 +7,5 @@ app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-const PORT = 4000;
+const PORT = (process.env.PORT as any) || 4000;
 app.listen(PORT, () => console.log(`Successfully running at http://localhost:${PORT}`));

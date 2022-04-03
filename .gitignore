@@ -4,3 +4,6 @@ server/dist
 client/dist
 **/node_modules
 **/dist
+
+# docker build -t @satishnaikawadi2001/online-compiler-server.
+# docker run -p 4000:4000 satishnaikawadi2001/online-compiler-server
