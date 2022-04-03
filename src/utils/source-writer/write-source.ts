@@ -1,7 +1,7 @@
 import * as fs from 'fs';
 import * as path from 'path';
 
-import { SOURCE_CODE_PATH } from '../../constants';
+import { OUTPUT_PATH, SOURCE_CODE_PATH } from '../../constants';
 import { LANGUAGES } from '../../constants/languages';
 import { LanguageNameType } from '../../types/Extension';
 import { getFileName } from './file-name';
@@ -10,6 +10,10 @@ export const dirCodes = SOURCE_CODE_PATH;
 
 if (!fs.existsSync(dirCodes)) {
 	fs.mkdirSync(dirCodes, { recursive: true });
+}
+
+if (!fs.existsSync(OUTPUT_PATH)) {
+	fs.mkdirSync(OUTPUT_PATH, { recursive: true });
 }
 
 /**

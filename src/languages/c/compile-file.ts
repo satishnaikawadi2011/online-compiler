@@ -18,6 +18,7 @@ export async function compileC(filePath: string, options?: Options): Promise<str
 	const compilerArgs: string = (options && options.compilerArgs) || '-lm';
 	let executableName = getFileName(executableExt);
 	let executablePath = path.join(OUTPUT_PATH, executableName);
+	console.log(executablePath);
 	let res = await execute(
 		compilationPath,
 		[

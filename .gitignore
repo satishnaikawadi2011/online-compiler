@@ -5,5 +5,9 @@ client/dist
 **/node_modules
 **/dist
 
-# docker build -t @satishnaikawadi2001/online-compiler-server.
+# docker build --tag="satishnaikawadi2001/online-compiler-server" .
 # docker run -p 4000:4000 satishnaikawadi2001/online-compiler-server
+# docker exec -it d638246c4305 ls
+
+# apiDocs ------> for API docs
+# jsDocs -------> for others

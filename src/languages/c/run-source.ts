@@ -1,4 +1,4 @@
-import { Result } from './../../types/result';
+import { Result } from './../../types';
 import { compileCSource } from './compile-source';
 import { Options } from '../../types';
 import { runExecutable } from '../../utils/executable/execute-executable';
