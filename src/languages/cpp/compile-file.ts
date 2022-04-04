@@ -1,4 +1,4 @@
-import { Options } from './../../types/options';
+import { Options } from '../../types/Options';
 import * as path from 'path';
 import * as fs from 'fs';
 import { getExecutableExt } from '../../utils/executable/executable-ext';
