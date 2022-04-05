@@ -10,7 +10,7 @@ import { compileJavaSource } from './compile-source';
  * @param options Any extra options or spawn like arguments
  * @returns Result object containing all the info like stdout,stderr,etc.
  */
-export async function runJavaSourceAndReturnPromise(source: string, options?: Options): Promise<Result> {
+export async function runJava(source: string, options?: Options): Promise<Result> {
 	try {
 		let classFilePath = await compileJavaSource(source, options);
 		let classPath = path.dirname(classFilePath);
