@@ -3,5 +3,6 @@ import { ExtensionType, LanguageNameType } from '../types/Extension';
 export const LANGUAGES: Record<LanguageNameType, ExtensionType> = {
 	java: 'java',
 	cpp: 'cpp',
-	c: 'c'
+	c: 'c',
+	python: 'py'
 };
