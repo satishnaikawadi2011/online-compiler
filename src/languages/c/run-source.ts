@@ -17,7 +17,10 @@ export async function runCSource(sourceCode: string, options?: Options): Promise
 			executablePath
 		] = await compileCSource(sourceCode, options);
 		const res = await runExecutable(executablePath, options);
-		await removeFiles(executablePath, filePath);
+		await removeFiles([
+			executablePath,
+			filePath
+		]);
 		return res;
 	} catch (err) {
 		return err;
