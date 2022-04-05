@@ -12,6 +12,7 @@ import java from '../languages/java';
 export const JavaController = async (req: Request, res: Response) => {
 	try {
 		const { code, input } = req.body;
+		console.log(code);
 		validateBody(req, res);
 		const stdin = formatStdin(input);
 
