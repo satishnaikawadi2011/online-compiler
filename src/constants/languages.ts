@@ -4,5 +4,6 @@ export const LANGUAGES: Record<LanguageNameType, ExtensionType> = {
 	java: 'java',
 	cpp: 'cpp',
 	c: 'c',
-	python: 'py'
+	python: 'py',
+	node: 'js'
 };
