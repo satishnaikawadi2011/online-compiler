@@ -6,5 +6,6 @@ export const LANGUAGES: Record<LanguageNameType, ExtensionType> = {
 	c: 'c',
 	python: 'py',
 	node: 'js',
-	go: 'go'
+	go: 'go',
+	rust: 'rs'
 };
