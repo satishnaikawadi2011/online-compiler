@@ -5,6 +5,7 @@ import CppRouter from './routes/cpp';
 import JavaRouter from './routes/java';
 import PythonRouter from './routes/python';
 import NodeRouter from './routes/node';
+import GoRouter from './routes/go';
 
 const app = express();
 
@@ -17,6 +18,7 @@ app.use('/api/cpp', CppRouter);
 app.use('/api/java', JavaRouter);
 app.use('/api/python', PythonRouter);
 app.use('/api/node', NodeRouter);
+app.use('/api/go', GoRouter);
 
 const PORT = (process.env.PORT as any) || 4000;
 app.listen(PORT, () => console.log(`Successfully running at http://localhost:${PORT}`));
