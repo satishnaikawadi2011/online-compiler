@@ -1,3 +1,3 @@
-export type ExtensionType = 'java' | 'cpp' | 'c' | 'py' | 'js';
+export type ExtensionType = 'java' | 'cpp' | 'c' | 'py' | 'js' | 'go';
 
-export type LanguageNameType = 'java' | 'cpp' | 'c' | 'python' | 'node';
+export type LanguageNameType = 'java' | 'cpp' | 'c' | 'python' | 'node' | 'go';
