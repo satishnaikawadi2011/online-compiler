@@ -8,7 +8,8 @@
 		"build": "tsc -b",
 		"tsnode": "ts-node src/app.ts",
 		"watch": "tsc -w",
-		"dev": "nodemon --exec node dist/src/app.js"
+		"dev": "nodemon --exec node dist/src/app.js",
+		"test:unit": "jest"
 	},
 	"keywords": [],
 	"author": "",
