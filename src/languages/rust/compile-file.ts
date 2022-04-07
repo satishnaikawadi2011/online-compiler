@@ -1,4 +1,4 @@
-import { Options } from './../../types/options';
+import { Options } from '../../types/index';
 import * as path from 'path';
 import * as fs from 'fs';
 import { OUTPUT_PATH } from '../../constants';
