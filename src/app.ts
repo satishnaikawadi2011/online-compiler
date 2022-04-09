@@ -7,6 +7,7 @@ import PythonRouter from './routes/python';
 import NodeRouter from './routes/node';
 import GoRouter from './routes/go';
 import RustRouter from './routes/rust';
+import RubyRouter from './routes/ruby';
 
 const app = express();
 
@@ -21,6 +22,7 @@ app.use('/api/python', PythonRouter);
 app.use('/api/node', NodeRouter);
 app.use('/api/go', GoRouter);
 app.use('/api/rust', RustRouter);
+app.use('/api/ruby', RubyRouter);
 
 const PORT = (process.env.PORT as any) || 4000;
 app.listen(PORT, () => console.log(`Successfully running at http://localhost:${PORT}`));
