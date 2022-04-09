@@ -8,5 +8,6 @@ export const LANGUAGES: Record<LanguageNameType, ExtensionType> = {
 	node: 'js',
 	go: 'go',
 	rust: 'rs',
-	ruby: 'rb'
+	ruby: 'rb',
+	elixir: 'exs'
 };

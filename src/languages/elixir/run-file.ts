@@ -8,7 +8,7 @@ import { Options, Result } from '../../types';
  * @param options Any extra options or arguments like in case of spawn
  * @returns Result object containing all the info like stdout,stderr,etc.
  */
-export async function runElixirFileAndReturnPromise(filePath: string, options?: Options): Promise<Result> {
+export async function runElixirFile(filePath: string, options?: Options): Promise<Result> {
 	//Make the path absolute
 	filePath = path.resolve(filePath);
 	const executionPath = 'elixir';
