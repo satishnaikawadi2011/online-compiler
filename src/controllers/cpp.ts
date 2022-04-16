@@ -15,7 +15,7 @@ export const CppController = async (req: Request, res: Response) => {
 		validateBody(req, res);
 		const stdin = formatStdin(input);
 
-		// need to generate a c file with content from the request
+		// need to generate a C++ file with content from the request
 		const result = await cpp.runCppSource(code, { stdin });
 		return res.status(201).json({ result });
 	} catch (error) {
