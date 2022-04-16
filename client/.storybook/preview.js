@@ -1,6 +1,5 @@
 import React from 'react';
 import { themes } from '@storybook/theming';
-import { useDarkMode } from 'storybook-dark-mode';
 import { AppStylesProvider } from '../src/styles/Provider';
 
 export const parameters = {
