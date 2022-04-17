@@ -25,6 +25,44 @@ import useApi from '../../hooks/useApi';
 import { useAppStore } from '../../store';
 import { languages } from '../../constants';
 import LoadingSpinner from '../LoadingSpinner/LoadingSpinner';
+import { Backdrop, TextField} from '@mui/material'
+import { makeStyles, createStyles } from '@mui/styles'
+
+const useStyles = makeStyles((theme:any) =>
+  createStyles({
+	  backdrop: {
+      zIndex: theme.zIndex.drawer + 1,
+      color: "#fff"
+    },
+	  inputModal: {
+      height: "fit-content",
+      width: "90%",
+      maxHeight: 500,
+      maxWidth: 400,
+      background: "#19202b",
+      borderRadius: "5px",
+      padding: 15,
+      textAlign: "left",
+      "& h3": {
+        display: "block",
+        color: "#7357fa",
+		  fontSize: "20px",
+		  fontFamily: 'PoppinsSemiBold !important',
+		  marginBottom:10
+      },
+      "& p": {
+        display: "block",
+		  fontSize: "14px",
+		  fontFamily: 'PoppinsRegular !important',
+		marginBottom:10
+      }
+    },
+    modalInput: {
+      width: "100%",
+		marginTop: "10px",
+    },
+  })
+) as any;
 
 export interface ITestComponent{
 	'data-testid'?: string;
@@ -94,6 +132,7 @@ const languageModes = {
 }
 
 const Editor = () => {
+	const muiClasses = useStyles();
 	const { data, error, loading, request: runSourceCode } = useApi(codeApi.runSourceCode);
 	const { currentLanguage } = useAppStore();
 
@@ -109,12 +148,14 @@ const Editor = () => {
 	const [
 		input,
 		setInput
-	] = useState<any[]>([]);
+	] = useState('');
 
 	const [
 		responseData,
 		setResponseData
-	] = useState<ResponseDataType|null>(null);
+	] = useState<ResponseDataType | null>(null);
+	
+	const [takeInput, setTakeInput] = useState(false);
 
 	useEffect(
 		() => {
@@ -129,15 +170,57 @@ const Editor = () => {
 	);
 
 	const handleRun = async () => {
-		await runSourceCode(languages[currentLanguage], code, input);
+		setTakeInput(true);
 	};
 
-	if (loading) {
+	const handleInputRun = async () => {
+		const inputArr = input.split('\n');
+		await runSourceCode(languages[currentLanguage], code, inputArr);
+	}
+
+	if (!loading) {
 		return <LoadingSpinner style={{height:'100%'}}/>
 	}
 
 	return (
 		<EditorContainer>
+		<Backdrop
+        className={muiClasses.backdrop}
+        open={takeInput}
+        onClick={() => {
+          setTakeInput(false);
+        }}
+      >
+        <div
+          className={muiClasses.inputModal}
+          onClick={(e) => {
+            e.stopPropagation();
+          }}
+        >
+          <h3>Input</h3>
+          <p>
+            If your code requires an input, please type it down below otherwise
+            leave it empty. For multiple inputs, type in all your inputs line by
+            line.
+          </p>
+          <TextField
+            id="outlined-basic"
+            label="STD Input"
+            variant="filled"
+            className={muiClasses.modalInput}
+            value={input}
+            onChange={(e) => {
+              setInput(e.target.value as any);
+						}}
+            spellCheck={false}
+            maxRows={7}
+            multiline
+          />
+         <IconButton style={{marginTop:10}} onClick={handleInputRun} Icon={RunIcon}>
+						Run
+		</IconButton>
+        </div>
+      </Backdrop>
 			<CodeContainer data-testid='code-section'>
 				<AceEditor
 					mode={(languageModes as any)[currentLanguage]}
