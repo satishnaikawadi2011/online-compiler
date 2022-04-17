@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import HomePage from '../pages';
+import EditorPage from '../pages/editor';
 import NotFoundPage from '../pages/not-found';
 
 export interface RouteType {
@@ -9,7 +10,8 @@ export interface RouteType {
 }
 
 const ClientRoutes: RouteType[] = [
-	{ path: '/', element: <HomePage /> }
+	{ path: '/', element: <HomePage /> },
+	{ path: '/editor', element: <EditorPage /> }
 ];
 
 const UnauthenticatedRoutes = () => {
