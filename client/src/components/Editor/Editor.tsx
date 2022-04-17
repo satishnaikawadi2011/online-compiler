@@ -178,8 +178,10 @@ const Editor = () => {
 		await runSourceCode(languages[currentLanguage], code, inputArr);
 	}
 
-	if (!loading) {
-		return <LoadingSpinner style={{height:'100%'}}/>
+	if (loading) {
+		return <div style={{height:'100%',display:'flex',justifyContent:'center',alignItems:'center'}}>
+			<LoadingSpinner />
+		</div>
 	}
 
 	return (
