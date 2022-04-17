@@ -1,9 +1,13 @@
 import React, { useRef, useState } from 'react';
 import styled from 'styled-components';
 import useClickOutside from '../../hooks/useClickOutside';
-import { IconButton, NormalButton } from '../Button/Button';
-import { ITestComponent } from '../Editor/Editor';
+import { ITestComponent } from '../../types';
+import { IconButton } from '../Button/Button';
 import DropdownIcon from '../Icons/Dropdown';
+
+interface IDropDownListContainerProps {
+	placement?: 'top' | 'bottom';
+}
 
 const DropDownContainer = styled('div')`
   width: 10.5em;
@@ -13,10 +17,13 @@ const DropDownContainer = styled('div')`
 
 const DropDownListContainer =
 	styled('div') <
-	ITestComponent >
+	(ITestComponent & IDropDownListContainerProps) >
 	`
   position: absolute;
-  bottom:60px;
+  ${(props) =>
+
+			props.placement === 'top' ? 'bottom:60px' :
+			'top:60px'};
   z-index: 100;
   width: 10.5em;
 `;
@@ -64,8 +71,8 @@ interface IDropdownProps extends ITestComponent {
 // React.FC<IDropdownProps & React.HTMLProps<HTMLDivElement>>
 const DropdownMenu = React.forwardRef<
 	React.RefObject<HTMLDivElement>,
-	IDropdownProps & React.HTMLProps<HTMLDivElement>
->(({ items = [], onOptionClicked, selectedOption, ...props }, ref) => {
+	IDropdownProps & React.HTMLProps<HTMLDivElement> & IDropDownListContainerProps
+>(({ items = [], onOptionClicked, selectedOption, placement, ...props }, ref) => {
 	const [
 		isOpen,
 		setIsOpen
@@ -91,7 +98,7 @@ const DropdownMenu = React.forwardRef<
 					{selectedOption.label}
 				</IconButton>
 				{isOpen && (
-					<DropDownListContainer data-testid="dropdown-list-container">
+					<DropDownListContainer placement={placement} data-testid="dropdown-list-container">
 						<DropDownList>
 							{items.map((item: IDropdownMenuItem) => (
 								<ListItem onClick={handleOptionClick(item)} key={item.label}>
