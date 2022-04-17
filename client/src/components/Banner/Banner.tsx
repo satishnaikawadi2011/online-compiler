@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { NormalButton, OutlinedButton } from '../Button/Button';
 import { Container } from '../Container/Container';
@@ -29,19 +30,20 @@ const Details = styled.div`
 const Actions = styled.div``;
 
 const Banner = () => {
+	let navigate = useNavigate();
 	return (
 		<StyledBanner>
 			<BannerContainer>
 				<Details>
-					<h1>Helps brand to grow</h1>
+					<h1>Compile,Run Anywhere</h1>
 					<p>
-						Cavetoo is the industry standard software to get your subscription pricing on the right track to
-						unlocking more growth
+						Compilateur is the in browser online compiler to run your source code on mobile or desktop or
+						any other device without any environment setup.
 					</p>
 				</Details>
 				<Actions>
-					<NormalButton>Editor</NormalButton>
-					<OutlinedButton>Know more</OutlinedButton>
+					<NormalButton onClick={() => navigate('/editor')}>Editor</NormalButton>
+					<OutlinedButton onClick={() => navigate('/about')}>Know more</OutlinedButton>
 				</Actions>
 			</BannerContainer>
 		</StyledBanner>
