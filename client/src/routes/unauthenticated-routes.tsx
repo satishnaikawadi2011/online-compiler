@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import HomePage from '../pages';
+import AboutPage from '../pages/about';
 import EditorPage from '../pages/editor';
 import NotFoundPage from '../pages/not-found';
 
@@ -11,7 +12,8 @@ export interface RouteType {
 
 const ClientRoutes: RouteType[] = [
 	{ path: '/', element: <HomePage /> },
-	{ path: '/editor', element: <EditorPage /> }
+	{ path: '/editor', element: <EditorPage /> },
+	{ path: '/about', element: <AboutPage /> }
 ];
 
 const UnauthenticatedRoutes = () => {
