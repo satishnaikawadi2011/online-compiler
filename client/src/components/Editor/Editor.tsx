@@ -176,6 +176,7 @@ const Editor = () => {
 	const handleInputRun = async () => {
 		const inputArr = input.split('\n');
 		await runSourceCode(languages[currentLanguage], code, inputArr);
+		setTakeInput(false);
 	}
 
 	if (loading) {
