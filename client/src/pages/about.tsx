@@ -2,10 +2,13 @@ import React from 'react';
 import { Container } from '../components/Container/Container';
 import Header from '../components/Navbar/Header';
 import coderIllustration from '../assets/images/coder.svg';
-
+import { Helmet } from 'react-helmet';
 const AboutPage = () => {
 	return (
 		<React.Fragment>
+			<Helmet>
+				<title>About | Compilateur</title>
+			</Helmet>
 			<Header
 				items={[
 					{ label: 'Home', path: '/' },

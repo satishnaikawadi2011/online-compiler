@@ -1,3 +1,4 @@
+import { Helmet } from 'react-helmet';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { Container } from '../components/Container/Container';
@@ -21,6 +22,9 @@ const NotFoundPage = () => {
 	let navigate = useNavigate();
 	return (
 		<VerticallyCenter>
+			<Helmet>
+				<title>Page Not Found | Compilateur</title>
+			</Helmet>
 			<Container>
 				<TextCenter>
 					<h1>😮</h1>

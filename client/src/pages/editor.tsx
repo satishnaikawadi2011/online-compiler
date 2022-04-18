@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
 import styled from 'styled-components';
 import Editor from '../components/Editor/Editor';
 import Header from '../components/Navbar/Header';
@@ -26,6 +27,9 @@ padding-bottom:0;
 const EditorPage = () => {
 	return (
 		<React.Fragment>
+			<Helmet>
+				<title>Code Editor | Compilateur</title>
+			</Helmet>
 			<EditorPageHeader noLinks items={[]} />
 			<EditorContainer>
 				<Editor />

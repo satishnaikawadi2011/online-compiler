@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import Banner from '../components/Banner/Banner';
 import Header from '../components/Navbar/Header';
 import bg from '../assets/images/laptop.jpg';
+import { Helmet } from 'react-helmet';
 
 const Hero = styled.section`
 	width: 100%;
@@ -18,6 +19,9 @@ const Hero = styled.section`
 const HomePage = () => {
 	return (
 		<Hero>
+			<Helmet>
+				<title>Hello from Compilateur | Compilateur</title>
+			</Helmet>
 			<Header
 				items={[
 					{ label: 'Home', path: '/' },
