@@ -55,3 +55,20 @@ client/*.sw?
 #     System.out.println("Username is: " + userName);  // Output user input
 #   }
 # }
+
+
+
+
+# DEPLOYMENT
+
+# heroku container:login
+
+# heroku create sn-compilateur-api
+
+# docker build --tag="satishnaikawadi2001/compilateur-api-deploy" .
+
+# docker tag satishnaikawadi2001/compilateur-api-deploy registry.heroku.com/sn-compilateur-api/web
+
+# docker push registry.heroku.com/sn-compilateur-api/web
+
+# heroku container:release web
