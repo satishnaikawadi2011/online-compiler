@@ -42,6 +42,7 @@
 - [Contact](#maintainer)
 - [Support](#support)
 - [License](#license)
+- [Deployment](#deployment)
 
 ## Project Breakdown
 ### 🗂️`client` - Holds the client application
@@ -192,3 +193,6 @@ Important decisions regarding the project are taken by the following maintainer.
 ## License
 
 **Compilateur** is licensed under the [MIT License](https://github.com/satishnaikawadi2011/online-compiler/blob/main/LICENSE).
+
+## Deployment
+<a href="https://compilateur-client-prod.vercel.app/"><img src="https://img.shields.io/badge/-Vercel-000000?logo=vercel&logoColor=white&style=for-the-badge"/></a>
