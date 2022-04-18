@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import styled from 'styled-components';
+import useClickOutside from '../../hooks/useClickOutside';
+import { useAppStore } from '../../store';
 import NavLinkContainer from './NavLink/NavLinkContainer';
 
 export interface INavItem {
@@ -32,14 +34,20 @@ const Line = styled.span`
 `;
 
 const Nav: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+	let linkContainerRef: any = useRef();
+	const onClickOutside = () => {
+		setIsMobileNavOpen(false);
+	};
+	useClickOutside(linkContainerRef, onClickOutside);
+	const { isMobileNavOpen, setIsMobileNavOpen } = useAppStore();
 	return (
-		<nav>
-			<Hamb>
+		<nav ref={linkContainerRef}>
+			<Hamb onClick={() => setIsMobileNavOpen(true)}>
 				<Line />
 				<Line />
 				<Line />
 			</Hamb>
-			<NavLinkContainer>{children}</NavLinkContainer>
+			<NavLinkContainer open={isMobileNavOpen}>{children}</NavLinkContainer>
 		</nav>
 	);
 };
